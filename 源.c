@@ -2,20 +2,29 @@
 
 int main()
 {
-	int d = 0;
-	printf("请输入一个正整数:");
-	scanf_s("%d", &d);
-	int A = d % 10;
-	int B = (d / 10)%10;
-	int C = d / 100;
-	if (A == 0)
+	int x;
+	double sum = 0;
+	int cnt = 0;
+	int number[100];
+	scanf_s("%d", &x);
+	while (x != -1)
 	{
-		printf("逆序输出的整数是:\n");
-		printf("%d", C);
+		number[cnt] = x;
+		sum += x;
+		cnt++;
+		scanf_s("%d", &x);
 	}
-	else
+	if (cnt > 0)
 	{
-		printf("逆序输出的整数是:\n");
-		printf("%d%d%d", A, B, C);
+		printf("%f\n", sum / cnt);
+		int i;
+		for (i = 0; i < cnt; i++)
+		{
+			if (number[i] > sum / cnt)
+			{
+				printf("%d\n", number[i]);
+			}
+		}
 	}
+	return 0;
 }
