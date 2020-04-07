@@ -1,30 +1,24 @@
 #include "stdio.h"
 
-int main()
+int main(void)
 {
+	const int number = 10;
+	int i;
+	int count[10];
 	int x;
-	double sum = 0;
-	int cnt = 0;
-	int number[100];
+
+	for (i = 0; i < number; i++) {
+		count[i] = 0;
+	}
 	scanf_s("%d", &x);
-	while (x != -1)
-	{
-		number[cnt] = x;
-		sum += x;
-		cnt++;
+	while (x != -1) {
+		if (x >= 0 && x <= 9) {
+			count[x]++;
+		}
 		scanf_s("%d", &x);
 	}
-	if (cnt > 0)
-	{
-		printf("%f\n", sum / cnt);
-		int i;
-		for (i = 0; i < cnt; i++)
-		{
-			if (number[i] > sum / cnt)
-			{
-				printf("%d\n", number[i]);
-			}
-		}
+	for (i = 0; i <number; i++) {
+		printf("%d:%d\t", i, count[i]);
 	}
 	return 0;
 }
