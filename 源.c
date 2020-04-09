@@ -1,24 +1,21 @@
 #include "stdio.h"
 
-int main(void)
+void sum(int begin, int end)
 {
-	const int number = 10;
 	int i;
-	int count[10];
-	int x;
+	int sum = 0;
+	for (i = begin; i < end; i++)
+	{
+		sum += i;
+	}
+	printf("%d到%d的整数和是:%d\n", begin, end, sum);
+}
 
-	for (i = 0; i < number; i++) {
-		count[i] = 0;
-	}
-	scanf_s("%d", &x);
-	while (x != -1) {
-		if (x >= 0 && x <= 9) {
-			count[x]++;
-		}
-		scanf_s("%d", &x);
-	}
-	for (i = 0; i <number; i++) {
-		printf("%d:%d\t", i, count[i]);
-	}
+int main()
+{
+	sum(1, 10);
+	sum(20, 30);
+	sum(35,45);
+
 	return 0;
 }
